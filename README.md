@@ -1,19 +1,42 @@
 # ChinaPulse
 
-Dashboard para monitorar a presença e a influência de marcas e conteúdos de origem chinesa no e-commerce brasileiro.
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react&logoColor=white)](https://react.dev)
+[![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=flat&logo=nodedotjs&logoColor=white)](https://nodejs.org)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?style=flat&logo=mongodb&logoColor=white)](https://www.mongodb.com)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+Dashboard que observa como tendências de conteúdo originadas na China se transformam em sinais de oportunidade no e-commerce brasileiro.
 
 ## Contexto
-O projeto nasceu a partir da palestra do Silvio Meira no REC’n’Play 2026, discutindo a interseção entre produção de conteúdo, tecnologia e comércio global.
 
-## O que ele faz
-- Monitoramento de tendências de produtos importados no mercado brasileiro
-- Visualização de métricas e alertas sobre movimentações de preços e estoque
-- Painel consolidado com dados de produtos e interações
+Projeto desenvolvido a partir da palestra do Silvio Meira no REC’n’Play 2026 sobre a interseção entre conteúdo, tecnologia e comércio.
+
+## Funcionalidades
+
+- Dashboard com visão consolidada de tendências e oportunidades
+- Acompanhamento de produtos com score de oportunidade
+- Detalhamento de tendências e sua evolução
+- Alertas e página de insights
 
 ## Stack
-- **Backend:** Node.js, Express, MongoDB (Mongoose)
-- **Frontend:** React, Vite, Tailwind CSS
 
+- **Frontend:** React, Vite, Tailwind CSS, Recharts
+- **Backend:** Node.js, Express, Mongoose
+- **Banco:** MongoDB Atlas
+
+## Rodando localmente
+
+### Pré-requisitos
+
+- Node.js 18+
+- Conta no MongoDB Atlas (ou MongoDB local)
+
+### Backend
+
+```bash
+cd server
+npm install
 ## Como rodar localmente
 
 ### Pré-requisitos
@@ -25,48 +48,33 @@ O projeto nasceu a partir da palestra do Silvio Meira no REC’n’Play 2026, di
 cd chinapulse/server
 npm install
 ```
-Crie um arquivo `.env` na pasta `chinapulse/server` com:
-```env
+### Crie um arquivo .env
+```bash
 PORT=5000
-MONGO_URI=mongodb://localhost:27017/chinapulse
+MONGODB_URI=sua_connection_string
 ```
 
-### 2. Popular o banco com dados iniciais (Seed)
+### Popular o banco:
 ```bash
-npm run seed
-```
-*(ou execute o script de seed diretamente na pasta do servidor)*
-
-### 3. Iniciar o Servidor
-```bash
-npm run dev
-```
-
-### 4. Configurar e rodar o Frontend
-Em outro terminal:
-```bash
-cd chinapulse/client
+npm run seedSubir o servidor:Bashnpm run devFrontendBashcd client
 npm install
 npm run dev
 ```
-
-## Deploy
-- **Backend:** Pode ser hospedado em plataformas como Render ou Railway conectando à pasta `chinapulse/server`.
-- **Frontend:** Pode ser publicado na Vercel ou Netlify apontando para a pasta `chinapulse/client`.
-
-## Estrutura do projeto
-
+## Estrutura:
 ```text
-ChinaPulse/
-├── chinapulse/
-│   ├── client/          # Aplicação Frontend (React + Vite + Tailwind)
-│   │   └── src/
-│   └── server/          # API Backend (Express + MongoDB)
-│       ├── src/
-│       │   ├── controllers/
-│       │   ├── models/
-│       │   └── routes/
-│       └── seed/        # Scripts de população de dados
+chinapulse/
+├── client/                 # React + Vite
+│   └── src/
+│       ├── components/
+│       ├── pages/
+│       └── services/
+├── server/                 # Express API
+│   ├── src/
+│   │   ├── controllers/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   └── config/
+│   └── seed/
 └── README.md
 ```
 
