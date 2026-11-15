@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+/chinapulse/server/node_modules/
+/chinapulse/client/node_modules/
+
+# Production builds & output
+dist/
+build/
+.output/
+/chinapulse/client/dist/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+/chinapulse/server/.env
+
+# Logs & debug
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# OS metadata & editors
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# Testing & coverage
+coverage/
+.nyc_output/
