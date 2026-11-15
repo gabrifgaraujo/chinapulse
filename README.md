@@ -1,91 +1,74 @@
-# ChinaPulse: Inteligência de Mercado Ásia-Brasil
+# ChinaPulse
 
-O **ChinaPulse** é uma plataforma de inteligência de mercado focada em identificar tendências emergentes no ecossistema digital asiático (como Douyin, Xiaohongshu e Weibo) e mapear oportunidades comerciais para o mercado brasileiro, antecipando demandas de consumo em nichos como *Skincare Tech*, *Smart Home* e moda viral.
+Dashboard para monitorar a presença e a influência de marcas e conteúdos de origem chinesa no e-commerce brasileiro.
 
-## 🚀 Conceito
-A China é atualmente o maior laboratório de conteúdo, tecnologia e comércio do mundo. O ChinaPulse atua como uma ponte, transformando dados brutos de viralidade asiática em insights de arbitragem comercial e oportunidades de dropshipping/importação para empreendedores brasileiros.
+## Contexto
+O projeto nasceu a partir da palestra do Silvio Meira no REC’n’Play 2026, discutindo a interseção entre produção de conteúdo, tecnologia e comércio global.
 
-## 🛠️ Stack Tecnológica
+## O que ele faz
+- Monitoramento de tendências de produtos importados no mercado brasileiro
+- Visualização de métricas e alertas sobre movimentações de preços e estoque
+- Painel consolidado com dados de produtos e interações
 
-### Backend
-- **Node.js + Express**: Servidor robusto e escalável.
-- **MongoDB + Mongoose**: Banco de dados NoSQL para armazenamento de tendências, produtos e alertas.
-- **Express-validator**: Garantia de integridade dos dados na entrada.
+## Stack
+- **Backend:** Node.js, Express, MongoDB (Mongoose)
+- **Frontend:** React, Vite, Tailwind CSS
 
-### Frontend
-- **React + Vite**: SPA rápida e moderna.
-- **Tailwind CSS**: Estilização focada em um design *Dark Mode* profissional e responsivo.
-- **Recharts**: Visualização de dados para acompanhar curvas de viralidade.
-- **Lucide React**: Biblioteca de ícones leve e consistente.
-- **Axios**: Comunicação eficiente com a API.
-
----
-
-## 💻 Como Rodar Localmente
+## Como rodar localmente
 
 ### Pré-requisitos
-- Node.js (v18+)
-- MongoDB Atlas (Cluster configurado)
+- Node.js instalado
+- Instância do MongoDB rodando (local ou Atlas)
 
-### 1. Backend
-1. Navegue até `chinapulse/server`.
-2. Instale as dependências: `npm install`.
-3. Configure o arquivo `.env`:
-   ```bash
-   PORT=5000
-   MONGO_URI=mongodb+srv://<seu-usuario>:<sua-senha>@cluster0.mongodb.net/chinapulse
-   NODE_ENV=development
-   ```
-4. Rode o servidor: `npm run dev`.
-
-### 2. Frontend
-1. Navegue até `chinapulse/client`.
-2. Instale as dependências: `npm install`.
-3. Rode o projeto: `npm run dev`.
-
----
-
-## 🍃 Seed de Dados
-Para popular o banco com tendências e produtos iniciais:
-1. No diretório `chinapulse/server`, execute:
-   ```bash
-   node seed/seed.js
-   ```
-
----
-
-## ☁️ Deploy
-
-### Backend (Render)
-1. Conecte o repositório ao Render.
-2. Defina o comando de build: `npm install`.
-3. Defina o comando de start: `npm start`.
-4. Adicione as variáveis de ambiente (`MONGO_URI`, `PORT`) no painel do Render.
-
-### Frontend (Vercel)
-1. Importe o diretório `chinapulse/client` na Vercel.
-2. A configuração do Vite é detectada automaticamente.
-3. Configure a variável de ambiente `VITE_API_URL` apontando para a URL do seu backend no Render.
-
----
-
-## 📂 Estrutura de Pastas
-
-```text
-/server
-  /src/controllers  # Lógica de negócio
-  /src/models       # Schemas do MongoDB
-  /src/routes       # Endpoints da API
-  /seed             # Script de popularização de dados
-/client
-  /src/components   # Componentes reutilizáveis
-  /src/pages        # Páginas principais
+### 1. Configurar o Backend
+```bash
+cd chinapulse/server
+npm install
+```
+Crie um arquivo `.env` na pasta `chinapulse/server` com:
+```env
+PORT=5000
+MONGO_URI=mongodb://localhost:27017/chinapulse
 ```
 
----
+### 2. Popular o banco com dados iniciais (Seed)
+```bash
+npm run seed
+```
+*(ou execute o script de seed diretamente na pasta do servidor)*
 
-## 🔮 Melhorias Futuras
-- **Autenticação de Usuário**: Implementação de JWT para áreas restritas.
-- **Crawler Avançado**: Automação para capturar tendências diretamente das redes sociais.
-- **Notificações Push**: Envio de alertas em tempo real (WhatsApp/Telegram).
-- **IA Generativa**: Integração com LLMs para resumir e traduzir descrições complexas do chinês para o português.
+### 3. Iniciar o Servidor
+```bash
+npm run dev
+```
+
+### 4. Configurar e rodar o Frontend
+Em outro terminal:
+```bash
+cd chinapulse/client
+npm install
+npm run dev
+```
+
+## Deploy
+- **Backend:** Pode ser hospedado em plataformas como Render ou Railway conectando à pasta `chinapulse/server`.
+- **Frontend:** Pode ser publicado na Vercel ou Netlify apontando para a pasta `chinapulse/client`.
+
+## Estrutura do projeto
+
+```text
+ChinaPulse/
+├── chinapulse/
+│   ├── client/          # Aplicação Frontend (React + Vite + Tailwind)
+│   │   └── src/
+│   └── server/          # API Backend (Express + MongoDB)
+│       ├── src/
+│       │   ├── controllers/
+│       │   ├── models/
+│       │   └── routes/
+│       └── seed/        # Scripts de população de dados
+└── README.md
+```
+
+## Observações
+Os dados gerados pelo seed são ilustrativos para demonstrar o comportamento da interface e o cruzamento de informações do painel.
