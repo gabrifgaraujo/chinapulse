@@ -8,7 +8,9 @@ const app = express();
 // Conectar ao DB
 connectDB();
 
-app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:5173", "https://chinapulse-lyart.vercel.app"]
+}));
 app.use(express.json());
 
 // Importar rotas
